@@ -4,7 +4,8 @@
   "description": "React + Redux + redux-saga lightweight starter kit",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --mode development --config ./config/webpack/dev.config.js --open --inline --hot",
-    "build": "NODE_ENV=production webpack --mode production --config ./config/webpack/prod.config.js"
+    "build": "NODE_ENV=production webpack --mode production --config ./config/webpack/prod.config.js",
+    "lint:js": "eslint --ext .js src/"
   },
   "main": "index.js",
   "repository": "git@github.com:mainset/react-ethereal-boilerplate.git",
@@ -17,6 +18,11 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "redux-devtools-extension": "^2.13.5",
@@ -28,6 +34,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "husky": "^1.1.2",
     "immutable": "^3.8.2",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
@@ -37,5 +44,10 @@
     "redux": "^4.0.1",
     "redux-saga": "^0.16.2",
     "reselect": "^4.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint:js"
+    }
   }
 }
