@@ -9,6 +9,13 @@
     "jsx-a11y",
     "import"
   ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
+  },
   "rules": {
     "arrow-parens": ["error", "always"],
     "react/forbid-prop-types": 0,
