@@ -7,7 +7,7 @@ import { fetchWelcomeSuccess, fetchWelcomeError } from './actions';
 import { FETCH_WELCOME_DATA } from './constants';
 
 function* fetchWelcomeData() {
-  const { result, error } = yield call(fetchRequestExample, '/get', { method: 'GET' });
+  const { result, error } = yield call(fetchRequestExample, '/api/get', { method: 'GET' });
 
   if (error) {
     yield put(fetchWelcomeError(error));

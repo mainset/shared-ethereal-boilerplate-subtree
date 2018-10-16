@@ -5,6 +5,7 @@ var path = require('path');
 var common = require('./common.config.js');
 
 var rootPath = path.join(__dirname, '..', '..');
+var proxyConfig = require('../proxy');
 /* eslint-enable */
 
 module.exports = merge(common, {
@@ -16,5 +17,6 @@ module.exports = merge(common, {
     port: 8080,
     contentBase: rootPath,
     historyApiFallback: true,
+    proxy: proxyConfig,
   },
 });
