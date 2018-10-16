@@ -1,13 +1,13 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 
-import { fetchRequest } from './utils';
+import { fetchRequestExample } from 'utils';
 
 import { fetchWelcomeSuccess, fetchWelcomeError } from './actions';
 
 import { FETCH_WELCOME_DATA } from './constants';
 
 function* fetchWelcomeData() {
-  const { result, error } = yield call(fetchRequest, '/get', { method: 'GET' });
+  const { result, error } = yield call(fetchRequestExample, '/get', { method: 'GET' });
 
   if (error) {
     yield put(fetchWelcomeError(error));
@@ -16,9 +16,10 @@ function* fetchWelcomeData() {
   yield put(fetchWelcomeSuccess(result));
 }
 
-export default function* appSagas() {
+function* exampleSagas() {
   return [
     yield takeLatest(FETCH_WELCOME_DATA, fetchWelcomeData),
-    yield takeLatest('FETCH_WELCOME_DATA_TWO', fetchWelcomeData)
   ];
 }
+
+export default exampleSagas;

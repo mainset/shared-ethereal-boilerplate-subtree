@@ -5,8 +5,7 @@ import { connect } from 'react-redux';
 import { Map } from 'immutable';
 import { Link } from 'react-router-dom';
 
-import { fetchWelcomeData } from './actions';
-import { selectWelcomeData } from './selectors';
+import { fetchWelcomeData, selectWelcomeData } from 'store';
 
 class Example extends Component {
   componentWillMount() {
@@ -17,8 +16,11 @@ class Example extends Component {
     const { welcome } = this.props;
     return (
       <div className="example-container">
-        <div>Your IP is: {welcome.get('origin')}</div>
-        <br/>
+        <div>
+          Your IP is:
+          {welcome.get('origin')}
+        </div>
+        <br />
         <Link to="/">Back to home page</Link>
       </div>
     );

@@ -12,7 +12,7 @@ const initialState = fromJS({
   error: null,
 });
 
-export default function appReducer(state = initialState, action) {
+function exampleReducer(state = initialState, action) {
   switch (action.type) {
     case FETCH_WELCOME_DATA:
       return state
@@ -30,3 +30,5 @@ export default function appReducer(state = initialState, action) {
       return state;
   }
 }
+
+export default exampleReducer;

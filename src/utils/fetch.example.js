@@ -28,3 +28,5 @@ export function fetchRequest(path, customOptions) {
     ))
     .catch((error) => ({ error }));
 }
+
+export default fetchRequest;
