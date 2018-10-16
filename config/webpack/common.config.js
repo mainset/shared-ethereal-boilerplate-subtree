@@ -24,6 +24,28 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: babelConfig,
+      }, {
+        test: /\.(svg|png)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[hash].[ext]',
+              outputPath: 'dist/assets/images/',
+            },
+          },
+        ],
+      }, {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[hash].[ext]',
+              outputPath: 'dist/assets/fonts',
+            },
+          },
+        ],
       },
     ],
   },
