@@ -6,13 +6,14 @@ var path = require('path');
 var babelConfig = require('../../babel.config');
 
 var rootPath = path.join(__dirname, '..', '..');
+var srcPath = path.join(rootPath, 'src');
 /* eslint-enable */
 
 module.exports = {
   mode: JSON.stringify(process.env.NODE_ENV),
   entry: [
     '@babel/polyfill',
-    path.join(rootPath, 'src/main.js'),
+    path.join(srcPath, 'main.js'),
   ],
   output: {
     path: path.join(rootPath, 'public'),
@@ -55,6 +56,9 @@ module.exports = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
-    new HtmlWebpackPlugin({ template: path.join(rootPath, 'src/index.template.html') }),
+    new HtmlWebpackPlugin({ template: path.join(srcPath, 'index.template.html') }),
   ],
+  resolve: {
+    modules: [srcPath, 'node_modules'],
+  },
 };
