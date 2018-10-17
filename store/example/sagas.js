@@ -1,8 +1,8 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 
-import { fetchRequestExample } from 'utils';
-
 import { fetchWelcomeSuccess, fetchWelcomeError } from './actions';
+
+import { fetchRequestExample } from '../../utils';
 
 import { FETCH_WELCOME_DATA } from './constants';
 
